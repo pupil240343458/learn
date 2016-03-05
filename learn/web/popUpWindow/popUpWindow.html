@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>弹窗</title>
+    <style type="text/css">
+        body{margin:0;padding:0;}
+        #bg{background:#000;position:absolute;left:0;top:0;opacity:0.9;display:none;}
+        #win{width:200px;height:200px;position:fixed;left:50%;top:50%;margin:-100px -100px;border:4px #F00 solid;background:#FFF;display:none;}
+    </style>
+</head>
+
+<body>
+<a href="javascript:;" onclick="WinTip()">弹出</a>
+<div id="bg"></div>
+<div class="fafa" style="height: 2000px;"></div>
+<p>fafafafafa</p>
+<div id="win"><a href="javascript:;" onclick="WinTip()">关闭</a></div>
+</body>
+
+
+<script type="text/javascript">
+
+        var Tip=document.getElementById("bg");
+        var a=document.getElementById("win");
+        function WinTip(){
+            Tip.style.width="100%";
+            Tip.style.height=document.body.scrollHeight;
+            if(Tip.style.display=="block"){
+                Tip.style.display="none";
+                a.style.display="none";
+            }else{
+                Tip.style.display="block";
+                a.style.display="block";
+            }
+    }
+//    var c=function(a){return document.getElementById(a);}
+//    function WinTip(){
+////        var win=new WinSize();
+//        var Tip=c("bg");
+//        var a=c("win");
+//        Tip.style.width="100%";
+//        Tip.style.height="100%";
+//        if(Tip.style.display=="block"){
+//            Tip.style.display="none";
+//            a.style.display="none";
+//        }else{
+//            Tip.style.display="block";
+//            a.style.display="block";
+//        }
+//    }
+//    function WinSize() //函数：获取尺寸
+//    {
+//        var winWidth = 0;
+//        var winHeight = 0;
+//        if (window.innerWidth)
+//            winWidth = window.innerWidth;
+//        else if ((document.body) && (document.body.clientWidth))
+//            winWidth = document.body.clientWidth;
+//        if (window.innerHeight)
+//            winHeight = window.innerHeight;
+//        else if ((document.body) && (document.body.clientHeight))
+//            winHeight = document.body.clientHeight;
+//        if (document.documentElement  && document.documentElement.clientHeight && document.documentElement.clientWidth)
+//        {winHeight = document.documentElement.clientHeight;
+//            winWidth = document.documentElement.clientWidth;}
+//        return{"W":winWidth,"H":winHeight}
+//    }
+</script>
+</html>

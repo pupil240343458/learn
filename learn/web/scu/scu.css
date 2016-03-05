@@ -1,0 +1,162 @@
+/*
+YUI 3.18.1 (build f7e7bcb)
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+
+
+
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    margin: 0;
+}
+div.top{
+    width: 100%;
+    height:120px;
+    background-color: #179040;
+    text-align: center;/*内容居中,只是空白部分*/
+}/*最顶部的背景颜色*/
+
+div.total1 {
+    width: 1024px;
+    margin-right: auto;/*居中*/
+    margin-left: auto;
+    height:600px;
+}/*整个页面布局的框架*/
+div.total2{
+    width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+    height:160px;
+}
+div.bar{
+    background-color: #b7fff0;
+    height: 35px;
+}/*导航栏*/
+div.img1{
+    height:120px;/*3像素bug*/
+}
+div.bar table tr td{
+    display:inline;/*这个标签相对于上个标签来说不换行,但是本标签要嵌套在上一个标签*/
+    font-family: "Microsoft YaHei UI";/*字体样式*/
+    font-size: 25px;/*字体大小*/
+    margin: 75px; /*控制字体间距离*/
+}
+div.bar table tr td a{
+    color: black;/*修改标签a里边的颜色*/
+    text-decoration: none;/*取消下划线*/
+}
+div.img2{
+    height:271px ;
+}
+div.decoration1{
+    width: 5px;
+    height: 25px;
+    background-color: gray;
+    white-space:nowrap;/*规定段落中的单个汉字之间不进行换行*/
+    margin-top: 1px;
+    float: left;/*貌似可以保证两个同级DIV不换行*/
+}
+div.news{
+    margin-left:10px;
+    display: inline;
+}
+.yaowen{
+    color: #179040;
+    font-size:25px;
+    display: inline;
+    text-decoration: none;
+}
+.more1{
+    color: #179040;
+    font-size: 3px;
+    display: inline;
+    text-decoration: none;
+    margin-left: 80px;
+}
+div.decoration1 ul{
+    padding-left:20px;
+    color: #8ec154;
+    margin: 0px;
+}
+div.decoration2{
+     width: 5px;
+     height: 25px;
+     background-color: gray;
+     white-space:nowrap;
+     margin-top: 1px;
+     float: left;
+     margin-left: 386px;
+ }
+div.notice{
+    margin-left:10px;
+    display: inline;
+}
+.gonggao{
+    color: #179040;
+    font-size:25px;
+    display: inline;
+    text-decoration: none;
+}
+.more2{
+    color: #179040;
+    font-size: 3px;
+    display: inline;
+    text-decoration: none;
+    margin-left: 80px;
+}
+div.decoration2 ul{
+    padding-left:20px;
+    color: #8ec154;
+    margin: 0px;
+}
+div.decoration3{
+    width: 5px;
+    height: 25px;
+    background-color: gray;
+    white-space:nowrap;
+    margin-top: 1px;
+    float: left;
+    margin-left: 386px;
+}
+div.quick{
+    margin-left:10px;
+    display: inline;
+}
+.login{
+    color: #179040;
+    font-size:25px;
+    display: inline;
+    text-decoration: none;
+}
+.more3{
+    color: #179040;
+    font-size: 3px;
+    display: inline;
+    text-decoration: none;
+    margin-left: 80px;
+}
+div.decoration3 ul{
+    padding-left:20px;
+    color: #8ec154;
+    margin: 0px;
+}
+div.quick img{
+    margin-top: 5px;
+    margin-left: 20px;
+}
+div.bottom{
+    background-color: gray;
+    width: 1024px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+div.bottom p a{
+    text-decoration:none;
+}
