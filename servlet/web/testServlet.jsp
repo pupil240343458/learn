@@ -16,8 +16,12 @@
 <jsp:getProperty name="u" property="userName"/>
 <jsp:getProperty name="u" property="passWord"/>
 <%
-    for(String s:u.getIntersts()){
-        out.print(s);
+    try {
+        for(String s:u.getIntersts()){
+            out.print(s);
+        }
+    }catch (Exception exception){
+        exception.printStackTrace();
     }
 %>
 <jsp:getProperty name="u" property="date"/>

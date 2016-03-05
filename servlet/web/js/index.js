@@ -8,13 +8,14 @@ window.onload= function () {
     var interest=document.getElementsByName("interest");
     submit[1].onclick=function()
     {
-        //for(var n=0;n<5;n++)
-        //{
-        //    if(!interest[n].checked)
-        //    {
-        //        interest[n].value=null;
-        //    }
-        //}
+        for(var n=0;n<5;n++)
+        {
+            if(interest[n].checked){
+                console.log(interest[n].value);
+            }
+            else {
+            }
+        }
         location.href="servlet/Servlet?name="+name[0].value+"&&passWord="+passWord[0].value;
     }
 }

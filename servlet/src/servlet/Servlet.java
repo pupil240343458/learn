@@ -17,23 +17,21 @@ import java.util.Date;
 @WebServlet(name = "Servlet")
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        javaBean user=new javaBean();
+        SimpleDateFormat date=new SimpleDateFormat("yyyy-MM--dd HH:mm:ss");
+        user.setDate(date.format(new Date()));
         try{
-            javaBean user=new javaBean();
-            SimpleDateFormat date=new SimpleDateFormat("yyyy-MM--dd HH:mm:ss");
-            user.setDate(date.format(new Date()));
             request.setCharacterEncoding("utf-8");
             user.setIntersts(request.getParameterValues("interest"));
             user.setPassWord(request.getParameter("passWord"));
             user.setUserName(request.getParameter("name"));
-            for(String s:user.getIntersts()){
-                System.out.print(s);
-            }
-
-            request.getSession().setAttribute("u",user);
-            request.getRequestDispatcher("../testServlet.jsp").forward(request,response);
         }
         catch (Exception exception){
             exception.printStackTrace();
+        }
+        finally {
+            request.getSession().setAttribute("u",user);
+            request.getRequestDispatcher("../testServlet.jsp").forward(request,response);
         }
     }
 
