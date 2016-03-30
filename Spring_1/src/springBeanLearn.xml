@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--每次请求bean容器都会创建一个新的helloDo类-->
+    <bean id="helloDo" class="learn.helloDo" scope="prototype">
+        <property name="hello"  ref="hello"></property>
+    </bean>
+
+    <!--通过p命名空间和c命名空间注入（其实就是property和constructor-arg-->
+    <bean id="helloT1" class="learn.hello" c:number2="222" p:number1="222"></bean>
+
+    <bean id="hello" class="learn.hello">
+
+        <constructor-arg index="0"  value="sss"></constructor-arg>
+        <constructor-arg index="1"  value="ss"></constructor-arg>
+
+        <property name="man" value="true"></property>
+
+        <property name="books">
+            <array>
+                <value>傲慢与偏见</value>
+                <value>傲慢与偏见</value>
+                <value>傲慢与偏见</value>
+                <value>傲慢与偏见</value>
+            </array>
+        </property>
+
+        <property name="number">
+            <list>
+                <value>1</value>
+                <value>1</value>
+                <value>1</value>
+                <value>1</value>
+            </list>
+        </property>
+
+        <property name="hashMap">
+            <map>
+                <entry key="1" value="2"></entry>
+                <entry key="4" value="2"></entry>
+                <entry key="1" value="2"></entry>
+            </map>
+        </property>
+
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>ddd</value>
+                <value>cs</value>
+                <value>cf</value>
+            </set>
+        </property>
+
+        <property name="wife"><null></null></property>
+
+        <property name="info">
+            <props>
+                <prop key="学号">1114sss</prop>
+                <prop key="学">fff</prop>
+                <prop key="学号">1114sss</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--为id为helloDo的类起别名字-->
+    <alias name="helloDo" alias="h" ></alias>
+
+    <!--如果有要导入的配置的文件-->
+    <!--<import resource="Spring_bean.xml"></import>-->
+</beans>
