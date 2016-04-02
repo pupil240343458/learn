@@ -4,7 +4,8 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/Spring_bean.xml</file>
+          <file>file://$MODULE_DIR$/src/springBeanKeepLearn.xml</file>
+          <file>file://$MODULE_DIR$/src/springBeanLearn.xml</file>
         </fileset>
       </configuration>
     </facet>
