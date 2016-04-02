@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="helloWorld" class="aopApi.helloWorld"></bean>
+    <bean id="before" class="aopApi.before"></bean>
+    <bean id="after" class="aopApi.after"></bean>
+    <aop:config>
+        <!--定义前置通知，expression="execution(*  aopApi.helloWorld.getHelloWorld())表示被通知的类的方法-->
+        <aop:pointcut id="pointCut" expression="execution(*  aopApi.helloWorld.getHelloWorld())"></aop:pointcut>
+        <!--前置通知的配置，把切入点通知和被通知的类关联起来-->
+        <aop:advisor advice-ref="before" pointcut-ref="pointCut"></aop:advisor>
+        <!--后置通知的配置，把切入点通知和被通知的类关联起来-->
+        <aop:advisor advice-ref="after" pointcut-ref="pointCut"></aop:advisor>
+    </aop:config>
+</beans>
