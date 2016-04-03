@@ -11,7 +11,8 @@
     <bean id="log" class="aopCustom.log"></bean>
     <aop:config>
         <aop:aspect ref="log">
-            <aop:pointcut id="pointCut" expression="execution(* aopCustom.helloWorld.*(..))"></aop:pointcut>
+            <!--execution(* aopCustom.helloWorld.*(String)) 第一个*为所有返回类型，第二*个表示所有方法，String表示方法参数要为String类型-->
+            <aop:pointcut id="pointCut" expression="execution(* aopCustom.helloWorld.*(String))"></aop:pointcut>
             <aop:before method="before" pointcut-ref="pointCut"></aop:before>
             <aop:after method="after" pointcut-ref="pointCut"></aop:after>
         </aop:aspect>
