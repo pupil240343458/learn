@@ -10,9 +10,9 @@ import java.lang.reflect.Method;
 public class before implements MethodBeforeAdvice {
     @Override
     public void before(Method method, Object[] objects, Object o) throws Throwable {
-//        System.out.println(method.getClass().getName()+"'s"+method.getName()+"way");
-//        System.out.println(o.getClass().getName()+"'s"+method.getName()+"way");
-//        System.out.println(objects[0].getClass().getName()+"'s"+method.getName()+"way");
-        System.out.println("hh");
+        System.out.println(method.getClass().getName()+"'s"+method.getName()+"way");
+        System.out.println(o.getClass().getName()+"'s"+method.getName()+"way");
+        System.out.println(objects.getClass().getName()+"'s"+method.getName()+"way");
+
     }
 }
