@@ -1,4 +1,4 @@
-package aopCustom;
+package aopAnnotation;
 
 /**
  * Created by pupil on 2016/4/2.

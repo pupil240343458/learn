@@ -1,4 +1,4 @@
-package aopCustom;
+package aopAnnotation;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,8 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class main {
     public static void main(String[] args) {
-        ApplicationContext content=new ClassPathXmlApplicationContext("aopCustom.xml");
-        helloWorld helloWorld=(aopCustom.helloWorld)content.getBean("helloWorld");
+        ApplicationContext content=new ClassPathXmlApplicationContext("aopAnnotation.xml");
+        helloWorld helloWorld=(aopAnnotation.helloWorld)content.getBean("helloWorld");
         helloWorld.getHelloWorld();
     }
 }
