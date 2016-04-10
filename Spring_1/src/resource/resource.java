@@ -19,11 +19,11 @@ public class resource {
 //        通过http://的方式访问文件
 //        Resource resource=applicationContext.getResource("http://blog.psjay.com/posts/summary-of-spring-3-aop/");
 
-//        通过None路径
+//        通过None路径，不能写相对路径，而且根路径是这个文件的路径
 //        Resource resource=applicationContext.getResource("resource/config.txt");
 
 
-//        通过classpath路径
+//        通过classpath路径，不能写相对路径，而且根路径是这个文件的路径
         Resource resource=applicationContext.getResource("classpath:resource/config.txt");
         System.out.println(resource.getFilename());
         System.out.println(resource.getDescription());
