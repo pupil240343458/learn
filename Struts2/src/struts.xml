@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--如果出现了编码问题，记得要统一编码-->
+    <!--<constant name="struts.i18n.encoding" value="UTF-8"></constant>-->
+
+    <!--可以让页面的后缀显示为html和do，如果不写，后缀是action或者不用添加action也可以访问-->
+    <constant name="struts.action.extension" value="html,do"></constant>
+
+    <!--导入其他的xml文件-->
+    <!--<include file="/a/c/struts.xml"></include>-->
+
+    <!--namespace是打开网页时xml寻找文件的路径，会在/下寻找符合的文件，只要在/路径下，不管子包路径对不对都可以找到。extends是集成了struts的自带文件，貌似都要写-->
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!--name的值要和下面action的name的值一样，如果此时地址栏输入http://localhost:8080/aaa或通过链接进入该地址栏，配置文件中并没有定义name为aaa的action，该路径会自动转入default-action中。
+但是如果用户输入http://localhost:8080/，该请求会首先被项目中web.xml来进行接收，由于web.xml中默认指定的页面是index.jsp，因此无论struts.xml中如何设置，服务器都会先跳转至index.jsp，除非删掉index.jsp-->
+        <default-action-ref name="error" ></default-action-ref>
+        <action name="error">
+            <result>/error.jsp</result>
+        </action>
+
+        <!--第几个*匹配第几个数字，method用{1}代替，那么result标签里边的name会自动填充给method值，然后赋值给相应的jsp文件-->
+        <action name="helloWorld_*" method="{1}" class="com.helloWorld">
+            <result>/result.jsp</result>
+            <result name="add">/{1}.jsp</result>
+            <result name="update">/{1}.jsp</result>
+        </action>
+
+        <action name="service" class="client.service">
+            <!--这里的result的name属性值默认是SUCCESS-->
+            <result>/result.jsp</result>
+            <!--如果发现类型不匹配，就是说填写的内容不符合要求，那么页面会重新回到client，但是注意url已经发生改变-->
+            <result name="input">/client.jsp</result>
+        </action>
+
+    </package>
+</struts>
