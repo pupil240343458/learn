@@ -14,7 +14,7 @@ public class TestBufferedString {
         // 指定要读取文件的缓冲输入字节流，默认缓冲区是8*1024B
         BufferedInputStream in = new BufferedInputStream(new FileInputStream("D:\\电影\\视觉秀《金猴闹春》六小龄童 13—在线播放—《辽宁卫视春节联欢晚会 2016》—综艺—优酷网，视频高清在线观看.flv"));
         File file = new File("D:\\mm.mp4");
-        if (file != null) {
+        if (!file.exists()) {
             file.createNewFile();
         }
         // 指定要写入文件的缓冲输出字节流
