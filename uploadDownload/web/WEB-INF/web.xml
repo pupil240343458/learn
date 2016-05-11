@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>upServlet</servlet-name>
+        <servlet-class>servlet.upServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <!--下面两行的配置就是告诉web容器，在遇到<url-pattern>里的路径（这个请求的路径在前端里常常表示为form里的action）请求时就交给名为servlet的servlet来处理-->
+        <servlet-name>upServlet</servlet-name>
+        <url-pattern>/servlet/upServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>downServlet</servlet-name>
+        <servlet-class>servlet.downServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <!--下面两行的配置就是告诉web容器，在遇到<url-pattern>里的路径（这个请求的路径在前端里常常表示为form里的action）请求时就交给名为servlet的servlet来处理-->
+        <servlet-name>downServlet</servlet-name>
+        <url-pattern>/servlet/downServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
