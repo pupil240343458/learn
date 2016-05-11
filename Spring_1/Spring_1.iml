@@ -4,6 +4,12 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/annotation.xml</file>
+          <file>file://$MODULE_DIR$/src/aopAnnotation.xml</file>
+          <file>file://$MODULE_DIR$/src/aopAnnotationDemo.xml</file>
+          <file>file://$MODULE_DIR$/src/aopApi.xml</file>
+          <file>file://$MODULE_DIR$/src/aopCustom.xml</file>
+          <file>file://$MODULE_DIR$/src/resource.xml</file>
           <file>file://$MODULE_DIR$/src/springBeanKeepLearn.xml</file>
           <file>file://$MODULE_DIR$/src/springBeanLearn.xml</file>
         </fileset>
