@@ -14,7 +14,7 @@
     <!--导入其他的xml文件-->
     <!--<include file="/a/c/struts.xml"></include>-->
 
-    <!--namespace是打开网页时xml寻找文件的路径，会在/下寻找符合的文件，只要在/路径下，不管子包路径对不对都可以找到。extends是集成了struts的自带文件，貌似都要写-->
+    <!--namespace是打开网页时xml寻找文件的路径，会在/下寻找符合的文件，只要在/路径下，不管子包路径对不对都可以找到。extends是继承了struts的默认配置，貌似都要写-->
     <package name="default" namespace="/" extends="struts-default">
 
         <!--name的值要和下面action的name的值一样，如果此时地址栏输入http://localhost:8080/aaa或通过链接进入该地址栏，配置文件中并没有定义name为aaa的action，该路径会自动转入default-action中。
