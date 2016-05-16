@@ -11,7 +11,7 @@ public class DBUtil {
     private final static String name="root";
     private final static String passWorld="123456";
     private final static String url="jdbc:mysql://localhost:3306/imooc";
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         //寻找mysql-connector-java包下面的相关类加载驱动
         forName("com.mysql.jdbc.Driver");
         //建立数据库连接
@@ -22,5 +22,7 @@ public class DBUtil {
         while(resultSet.next()){
             System.out.println(resultSet.getString(1)+" "+resultSet.getString("age")+" "+resultSet.getString("user_name"));
         }
+        //关闭数据库的连接，这里并没有关闭statement和resultSet，因为关闭connection之后，这俩会自动关闭。
+        connection.close();
     }
 }
