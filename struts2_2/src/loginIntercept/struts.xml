@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="loginIntercept" namespace="/loginIntercept" extends="struts-default">
+        <interceptors>
+            <interceptor name="loginIntercept" class="loginIntercept.loginIntercept"></interceptor>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="loginIntercept"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+        <action name="loginAction" class="loginIntercept.loginAction">
+            <result type="redirectAction">success</result>
+            <result name="login">/loginIntercept/login.jsp</result>
+        </action>
+        <action name="success">
+            <result>/loginIntercept/success.jsp</result>
+            <result name="login">/loginIntercept/login.jsp</result>
+        </action>
+        <action name="index">
+            <!--这里注意：在WEB-INF下面的jsp文件只有通过action的方式才能访问，在前端以url的形式（localhost:8080/WEB-INF/index.jsp）不能访问-->
+            <result>/WEB-INF/index.jsp</result>
+            <result name="login">/loginIntercept/login.jsp</result>
+        </action>
+    </package>
+</struts>

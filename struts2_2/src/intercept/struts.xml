@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="timeIntercept" namespace="/intercept" extends="struts-default">
+        <interceptors>
+
+            <!--配置拦截器-->
+            <interceptor name="timeIntercept" class="intercept.timeIntercept"></interceptor>
+
+            <!--当自定义一个拦截器并引用之后，如果不引用defaultStack(struts默认引用的拦截器，在struts-default里)时，则将会只用自定义的拦截器。在本例中，将接收不到前端传递的name-->
+            <interceptor-stack name="myStack">
+                <!--引用拦截器-->
+                <interceptor-ref name="timeIntercept"></interceptor-ref>
+                <!--引用默认的拦截器栈-->
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--这里相当于重写struts的默认配置。配置好之后，就不用在action里引用拦截器。这个package所有的action都会执行这个拦截器栈-->
+        <!--<default-interceptor-ref name="myStack"></default-interceptor-ref>-->
+
+        <action name="execute" class="intercept.execute">
+            <result>/intercept/success.jsp</result>
+            <!--引用拦截器栈-->
+            <interceptor-ref name="myStack"></interceptor-ref>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--配置default.properties的属性。默认上传最大为2M，这里设置为1G-->
+    <constant name="struts.multipart.maxSize" value="1073741824"></constant>
+    <package name="singleUpload" namespace="/singleUpload" extends="struts-default">
+        <action name="singleUpload" class="uploadDownload.singleUpload">
+            <!-- 配置fileUpload的拦截器 -->
+            <interceptor-ref name="fileUpload">
+
+                <!-- 配置允许上传的文件类型，以后虽然仍旧可以上传其他类型文件，但是日志会给警告。猜想：可以自定义如果类型不合法，禁止上传 -->
+                <param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+
+                <!--配置允许上传文件的扩展名,如果有多个用","隔开，以后虽然仍旧可以上传其他类型文件，但是日志会给警告。猜想：可以自定义如果类型不合法，禁止上传 -->
+                <param name="allowedExtensions">txt,excel,ppt</param>
+
+            </interceptor-ref>
+
+            <!-- 配置struts2的默认拦截器栈  -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result>/uploadDownload/success.jsp</result>
+        </action>
+        <action name="downLoad" class="uploadDownload.downLoad">
+            <!--要用框架下载，type设置为stream，并且设置contentDisposition为对应value。默认是inline，下载的时候只能下载文件而不会有类型-->
+            <result type="stream">
+                <!--设置contentDisposition的value（提供给filename值为action对应class的fileName变量的value）-->
+                <param name="contentDisposition">attachment;filename=${fileName}</param>
+            </result>
+        </action>
+    </package>
+</struts>

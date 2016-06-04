@@ -6,21 +6,53 @@
 
 <struts>
 
+    <include file="bean/struts.xml"></include>
+    <include file="servletApi/struts.xml"></include>
+    <include file="validate/struts2.xml"></include>
+    <include file="intercept/struts.xml"></include>
+    <include file="loginIntercept/struts.xml"></include>
+    <include file="uploadDownload/struts.xml"></include>
     <!--配置struts2的属性，这里解决乱码问题-->
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
 
     <!--struts2基于包管理，且继承默认配置struts-default-->
     <package name="helloAction" namespace="/" extends="struts-default">
+
+        <!--声明默认的action，当找不到指定的action的name时，就执行这个action的name对应的action-->
+        <default-action-ref name="error"></default-action-ref>
+
+        <!--重写默认的action的class（因为struts本身有默认的class，所以这里再定义就是重写），当action没有声明的class时候，就执行此class-->
+        <default-class-ref class="action.helloAction"></default-class-ref>
+
+        <!--配置全局结果集，当返回值为其中指定的值的时候，则转发到声明的网页。（位置要在package内，所有action的前面-->
+        <global-results>
+            <result>/action/success.jsp</result>
+        </global-results>
+
         <!--name是请求名称，就是说当form表单的action是hello或者hello.action的时候，会执行这个action块，class是对应的类路径-->
         <action name="hello" class="action.helloAction">
             <!--根据方法返回的结果执行相应的result,默认是success-->
-            <result name="success">/success.jsp</result>
-            <result name="failed">/failed.jsp</result>
+            <result name="success">/action/success.jsp</result>
+            <result name="failed">/action/failed.jsp</result>
         </action>
+
         <!--根据类中logout方法的返回值确定转发到哪个网页-->
         <action name="logout" method="logout" class="action.helloAction">
-            <result>/success.jsp</result>
+            <result>/action/success.jsp</result>
         </action>
+
+        <action name="interfaceAction" class="action.interfaceAction">
+            <result>/action/success.jsp</result>
+        </action>
+
+        <action name="extendsAction" class="action.extendsAction">
+            <result>/action/success.jsp</result>
+        </action>
+
+        <action name="error"  >
+            <result name="failed">/action/error.jsp</result>
+        </action>
+
     </package>
 
 </struts>

@@ -15,6 +15,13 @@
           <fileset id="s2fileset" name="Default File Set " removed="false">
             <file>file://$MODULE_DIR$/src/struts.xml</file>
             <file>jar://C:/struts-2.3.28/lib/struts2-core-2.3.28.jar!/struts-default.xml</file>
+            <file>file://$MODULE_DIR$/src/bean/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/servletApi/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/validate/struts2.xml</file>
+            <file>file://$MODULE_DIR$/src/intercept/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/loginIntercept/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/uploadDownload/struts.xml</file>
+            <file>jar://C:/struts-2.3.28/lib/struts2-json-plugin-2.3.28.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -28,6 +35,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Struts 2" level="project" />
+    <orderEntry type="library" exported="" name="Struts 2" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.0.28" level="application_server_libraries" />
   </component>
 </module>

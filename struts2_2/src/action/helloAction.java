@@ -7,6 +7,7 @@ public class helloAction {
     private String name;
     private String passWord;
     public String execute(){
+        System.out.println("执行execute");
         if("admin".equals(name)&&"admin".equals(passWord)){
             return "success";
         }else {
