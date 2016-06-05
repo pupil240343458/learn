@@ -12,6 +12,7 @@
     <include file="intercept/struts.xml"></include>
     <include file="loginIntercept/struts.xml"></include>
     <include file="uploadDownload/struts.xml"></include>
+    <include file="ajaxJson/struts.xml"></include>
     <!--配置struts2的属性，这里解决乱码问题-->
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
 
