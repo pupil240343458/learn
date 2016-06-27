@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToMany">
+    <class name="student" table="student">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="age"></property>
+        <property name="name"></property>
+    </class>
+    <class name="grade" table="grade">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="name"></property>
+
+        <!--表名字-->
+        <set name="students">
+            <!--设置外键-->
+            <key column="gradeId"></key>
+            <!--设置表的路径-->
+            <one-to-many class="student"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

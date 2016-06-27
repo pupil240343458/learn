@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToMany">
+    <class name="role">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="name"></property>
+        <!--单向多对多-->
+        <set name="functions" cascade="all">
+            <!--表示当前类 映射到关系表中的列，默认为主键列-->
+            <key column="roleId"></key>
+            <!--另一方对应的列，默认为主键列，可以通过proer-ref修改-->
+            <many-to-many column="functionId" class="function"></many-to-many>
+        </set>
+    </class>
+    <class name="function">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="name"></property>
+        <property name="power"></property>
+    </class>
+</hibernate-mapping>

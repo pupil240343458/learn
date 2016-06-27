@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="component">
+    <class name="teacher">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="sex"></property>
+        <property name="name"></property>
+        <!--通过组件的形式，把两个对象表示在同一张表中-->
+        <component name="address" class="address">
+            <property name="address1"></property>
+            <property name="address2"></property>
+            <property name="address3"></property>
+        </component>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="extend">
+    <!--多个类，但是公用一张表-->
+    <class name="person">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <!--鉴别器，鉴别是哪个类。注意鉴别器要放在property前，否则报错，注意type属性写全，否则报错-->
+        <discriminator column="type" type="java.lang.String"></discriminator>
+        <property name="age"></property>
+        <property name="name"></property>
+        <!--声明子类，并且设置鉴别器的值为s-->
+        <subclass name="student" discriminator-value="s">
+            <property name="work"></property>
+        </subclass>
+        <subclass name="teacher" discriminator-value="t">
+            <property name="salary"></property>
+        </subclass>
+    </class>
+</hibernate-mapping>

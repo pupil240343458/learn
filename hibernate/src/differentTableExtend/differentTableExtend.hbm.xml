@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="differentTableExtend">
+    <!--多个类，不同的表,如果不想生成person表，可以在下列加入属性 abstract="true"-->
+    <class name="person" abstract="true">
+        <id name="id">
+            <!--这时候不能用自增，要自己定义，但是注意自己定义ID的时候注意两张表的id不能重复。（可以理解为虽然是两张表，但是公用一套ID）-->
+            <generator class="assigned"></generator>
+        </id>
+        <property name="age"></property>
+        <property name="name"></property>
+        <union-subclass name="student">
+            <property name="work"></property>
+        </union-subclass>
+        <union-subclass name="teacher">
+            <property name="salary"></property>
+        </union-subclass>
+    </class>
+</hibernate-mapping>

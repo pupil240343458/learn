@@ -1,0 +1,45 @@
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!--配置数据库连接信息-->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		<!--打印hibernate执行的sql语句-->
+		<property name="show_sql">true</property>
+		<!--格式化打印的sql语句，看起来更清晰-->
+		<property name="format_sql">true</property>
+		<!--
+		create：每次执行都先删除原来的表，然后创建新的表，并执行动作；
+		update：如果表不存在，则先创建，再执行动作；
+		-->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!--数据库方言，告诉hibernate数据库的类型及其他信息，实现不同数据库的细节差异-->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<!--映射文件信息-->
+		<!--<mapping resource="DBTestStudent/student.hbm.xml"></mapping>-->
+		<!--<mapping resource="getClearDelete/student.hbm.xml"></mapping>-->
+		<!--<mapping resource="twoPrimary/twoPrimary.hbm.xml"></mapping>-->
+		<!--<mapping resource="component/component.hbm.xml"></mapping>-->
+		<!--<mapping resource="manyToOne/manyToOne.hbm.xml"></mapping>-->
+		<!--<mapping resource="oneToMany/oneToMany.hbm.xml"></mapping>-->
+		<!--<mapping resource="bothOneToMany/bothOneToMany.hbm.xml"></mapping>-->
+		<!--<mapping resource="manyToMany/manyToMany.hbm.xml"></mapping>-->
+		<!--<mapping resource="list/list.hbm.xml"></mapping>-->
+		<!--<mapping resource="map/map.hbm.xml"></mapping>-->
+		<!--<mapping resource="extend/extend.hbm.xml"></mapping>-->
+		<!--<mapping resource="differentTableExtend/differentTableExtend.hbm.xml"></mapping>-->
+		<!--<mapping resource="baseHql/baseHql.hbm.xml"></mapping>-->
+		<mapping resource="block/block.hbm.xml"></mapping>
+	</session-factory>
+</hibernate-configuration>

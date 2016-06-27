@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToOne">
+    <class name="student" table="student">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="age"></property>
+        <property name="name"></property>
+        <!--设置外键，外键关联相应class的主键。可以通过property-ref=""设置为关联其他，但必须为unique。如果在下边的标签内添加属性unique="true"，则设置为单向的一对一关系-->
+        <many-to-one name="grade" class="grade" column="gradeId"></many-to-one>
+    </class>
+    <!--因为是两个表相关联起来，所以class标签要有两个-->
+    <class name="grade" table="grade">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="name"></property>
+    </class>
+</hibernate-mapping>
