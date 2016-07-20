@@ -50,7 +50,7 @@ public class EnergySystem {
 			 energyBoxes[from] -= amount;
 			 System.out.printf("从%d转移%10.2f单位能量到%d", from, amount, to);
 			 energyBoxes[to] += amount;
-			 System.out.printf(" 能量总和：%10.2f%n", getTotalEnergies());
+			 System.out.printf(" 能量总和：%10.2f\n", getTotalEnergies());
 			//唤醒所有在lockObj对象上等待的线程
 			 lockObj.notifyAll();
 		 }
