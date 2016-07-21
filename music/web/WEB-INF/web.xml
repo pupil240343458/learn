@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>musicData</servlet-name>
+        <servlet-class>musicData.musicData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>musicData</servlet-name>
+        <!--这里配置的时候不用担心web服务器的application context选项填写的/learn 这里填写的/是web应用的根目录-->
+        <url-pattern>/musicData/musicData</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

@@ -1,0 +1,14 @@
+.test:active{
+    width: 400px;
+    height:500px;
+    float: left;
+    background-color: black;
+    transition: all 0.3s ease-in;
+}
+.test{
+    width: 50px;
+    height:500px;
+    background-color: black;
+    float: left;
+    transition: all 0.3s ease-in;
+}
